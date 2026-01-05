@@ -1,0 +1,76 @@
+DataLullaby
+
+Author : Bomin Kwon
+-----------------------
+Turning images into music through reproducible sonification
+
+What it is
+
+DataLullaby is an image-to-music sonification engine that translates visual data into sound. It converts research images into structured musical compositions using consistent, explainable rules.
+
+This is not generative music inspired by images.
+It is a deterministic system that treats sound as an alternate interface for data.
+
+Why it exists
+
+Many patterns in data are difficult to notice visually but easy to hear. DataLullaby provides a second perceptual channel for understanding structure, change, and repetition in images.
+
+It is designed for:
+
+Research exploration
+
+Accessibility and multimodal analysis
+
+Creative work grounded in real data
+
+How it works
+
+DataLullaby processes each image through a fixed pipeline:
+
+Normalize
+Images are resized and brightness-normalized so formatting differences do not affect output.
+
+Extract structure
+The system identifies brightness distributions, edges, regions, and gradients that describe the image’s structure.
+
+Map to music
+Visual features are translated into musical parameters such as time, pitch, volume, duration, and timbre using consistent mapping rules.
+
+Apply constraints
+Musical constraints (scales, ranges, rhythm) ensure the output is listenable without altering the underlying data.
+
+Generate sound
+The system produces a complete musical piece through synthesis or MIDI output.
+
+The same image will always produce the same sound.
+
+What it outputs
+
+For each image, DataLullaby generates:
+
+Audio files (WAV or MP3)
+
+MIDI files
+
+Visual timelines aligning image structure with sound
+
+Metadata linking image and audio output
+
+Each output is reproducible and traceable back to the source image.
+
+What makes it different
+
+Deterministic – no randomness, no hidden prompts
+
+Explainable – every sound maps back to visual structure
+
+Scalable – processes single images or large datasets
+
+Cross-disciplinary – useful for research, accessibility, and art
+
+Core idea
+
+Images represent information frozen in space.
+Music represents information unfolding in time.
+
+DataLullaby translates between the two.
