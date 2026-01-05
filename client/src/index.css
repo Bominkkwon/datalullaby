@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* HSL Color Space */
+  --background: 224 71% 4%;
+  --foreground: 213 31% 91%;
+  
+  /* Vibrant Pink */
+  --primary: 330 100% 70%;
+  --primary-foreground: 330 100% 95%;
+  
+  /* Tech Blue */
+  --secondary: 199 89% 48%;
+  --secondary-foreground: 210 40% 98%;
+  
+  --muted: 223 47% 11%;
+  --muted-foreground: 215 20% 65%;
+  
+  --accent: 262 80% 50%;
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+  
+  --border: 216 34% 17%;
+  --input: 216 34% 17%;
+  --ring: 330 100% 70%;
+  
+  --radius: 0.125rem;
+  
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-sans: 'IBM Plex Mono', sans-serif;
+  --font-display: 'IBM Plex Mono', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight font-bold uppercase;
+  }
+}
+
+@layer utilities {
+  .tech-border {
+    @apply border border-border/50 relative;
+  }
+  
+  .tech-border::before {
+    @apply content-[''] absolute -top-px -left-px w-2 h-2 border-t-2 border-l-2 border-primary opacity-50;
+  }
+  
+  .tech-border::after {
+    @apply content-[''] absolute -bottom-px -right-px w-2 h-2 border-b-2 border-r-2 border-primary opacity-50;
+  }
+
+  .grid-bg {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded hover:bg-muted-foreground/40 transition-colors;
+}
