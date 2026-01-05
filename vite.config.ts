@@ -2,15 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
-
-// ESM __dirname fix
 import { fileURLToPath } from "url";
+
+// Fix __dirname in ESM
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  // The root of your Vite project should be this client folder
-  root: __dirname,
-
+  root: path.resolve(__dirname, "client"), // <-- client folder is the project root
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -21,20 +19,17 @@ export default defineConfig({
         ]
       : []),
   ],
-
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),               // typical app alias
-      "@assets": path.resolve(__dirname, "src/assets"),  // assets
+      "@": path.resolve(__dirname, "client/src"),
+      "@shared": path.resolve(__dirname, "shared"),
+      "@assets": path.resolve(__dirname, "attached_assets"),
     },
   },
-
   build: {
-    // Output build into a folder that your server can serve
-    outDir: path.resolve(__dirname, "../dist/public"),
+    outDir: path.resolve(__dirname, "dist/public"), // server serves from here
     emptyOutDir: true,
   },
-
   server: {
     fs: {
       strict: true,
