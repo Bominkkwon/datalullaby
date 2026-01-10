@@ -7,7 +7,6 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client"),
-      "@db": path.resolve(__dirname, "./db"),
     },
   },
   root: path.resolve(__dirname, "client"),
@@ -15,15 +14,12 @@ export default defineConfig({
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,
     rollupOptions: {
-      external: ['rollup'],
-    },
-  },
-  server: {
-    proxy: {
-      "/api": {
-        target: "http://localhost:5000",
-        changeOrigin: true,
-      },
+      external: [
+        'rollup',
+        /node_modules/,
+        /server/,
+        /^node:/,
+      ],
     },
   },
 });
