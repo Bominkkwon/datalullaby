@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx index.ts",
-    "build": "tsc",
+    "build": "tsx --tsconfig ./tsconfig.json index.ts",
     "start": "node dist/index.js"
   },
   "dependencies": {
