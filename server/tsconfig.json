@@ -1,22 +1,13 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ES2022",
-    "lib": ["ES2022"],
-    "moduleResolution": "bundler",
-    "outDir": "./dist",
-    "rootDir": "./",
-    "strict": false,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
+    "rootDir": ".",
+    "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "../",
-    "paths": {
-      "@shared/*": ["./shared/*"]
-    }
+    "skipLibCheck": true
   },
-  "include": ["./**/*", "../shared/**/*", "../vite.config.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["index.ts"]
 }
