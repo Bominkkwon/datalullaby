@@ -1,18 +1,16 @@
-{
-  "name": "client",
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwindcss": "^3.4.0",
-    "postcss": "^8.4.0",
-    "autoprefixer": "^10.4.0"
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
-  "devDependencies": {
-    "vite": "^4.5.14",
-    "@vitejs/plugin-react": "^4.0.0"
+  build: {
+    outDir: "../dist/public",
+    emptyOutDir: true,
   },
-  "scripts": {
-    "build": "vite build",
-    "dev": "vite"
-  }
-}
+});
