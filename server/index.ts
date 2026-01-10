@@ -1,19 +1,15 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
+import express from "express"
 
-dotenv.config();
+const app = express()
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+app.use(express.json())
 
-// Example route
-app.get("/api/health", (_req, res) => {
-  res.json({ status: "ok" });
-});
+app.get("/", (_req, res) => {
+  res.send("datalullaby server is running")
+})
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080
+
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+  console.log(`Server running on port ${PORT}`)
+})
